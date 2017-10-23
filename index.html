@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TicTacToe</title>
+    <style>
+
+      html, body{
+        background-color: #f7f7f7;
+      }
+
+      #app{
+        width: 540px;
+        height: 540px;
+        border: 1px solid black;
+        margin: 0 auto;
+        border-radius: 2%;
+      }
+
+      .gridBox{
+        width: 170px;
+        height: 170px;
+        border: 1px solid black;
+        float: left;
+      }
+
+
+    </style>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+
+    <script>
+
+    const app = document.getElementById('app');
+
+
+    let userDefault = true;
+    let gridContent = [0,0,0,
+                       0,0,0,
+                       0,0,0];
+
+    function buildMap(){
+      for(var i = 0; i < gridContent.length; i++){
+        const gridBox = document.createElement('div');
+        gridBox.classList.add('gridBox');
+        app.appendChild(gridBox);
+        console.log(180);
+      }
+    }
+
+    (function init(){
+      buildMap();
+    })();
+
+
+
+    </script>
+
+  </body>
+</html>
