@@ -7,13 +7,14 @@
 
       html, body{
         background-color: #f7f7f7;
+        font-family: arial;
       }
 
       #app{
         width: 540px;
         height: 540px;
         border: 1px solid black;
-        margin: 0 auto;
+        margin: 60px auto;
         border-radius: 2%;
       }
 
@@ -22,6 +23,27 @@
         height: 170px;
         border: 1px solid black;
         float: left;
+      }
+
+      .symbolPick{
+        color: white;
+        display: inline-block;
+        margin-left: 140px;
+        margin-top: 40px;
+        font-size: 5em;
+        margin-right: 2px;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+
+      .symbolPick:hover{
+        color: #d8b16e;
+        cursor: pointer;
+        margin-left: 138px;
+        margin-top: 38px;
+        text-shadow: 0 0 4px white;
+        border: 2px #d8b16e dashed;
+        margin-right: 0px;
       }
 
 
@@ -42,7 +64,14 @@
                        0,0,0,
                        0,0,0];
 
+    function chooseY(){
+      userDefault = false;
+      buildMap();
+    }
+
     function buildMap(){
+      app.style.backgroundColor="#f7f7f7";
+      app.innerHTML="";
       for(var i = 0; i < gridContent.length; i++){
         const gridBox = document.createElement('div');
         gridBox.classList.add('gridBox');
@@ -51,8 +80,29 @@
       }
     }
 
+    function chooseSymbol(){
+        const questionUser = document.createElement('h2');
+        app.style.backgroundColor="#1d3151";
+        questionUser.style.color="white";
+        questionUser.innerHTML="Would you like to play as X or O?";
+        questionUser.style.textAlign="center";
+        questionUser.style.fontSize="2em";
+        questionUser.style.marginTop="120px";
+        app.appendChild(questionUser);
+        const pickX = document.createElement('h1');
+        const pickY = document.createElement('h1');
+        pickX.innerHTML="X";
+        pickY.innerHTML="Y";
+        pickX.classList="symbolPick";
+        pickY.classList="symbolPick";
+        app.appendChild(pickX);
+        app.appendChild(pickY);
+        pickX.addEventListener('click', buildMap);
+        pickY.addEventListener('click', chooseY);
+    }
+
     (function init(){
-      buildMap();
+      chooseSymbol();
     })();
 
 
