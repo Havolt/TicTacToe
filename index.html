@@ -118,7 +118,16 @@
     }
 
     function endGameCheck(){
-      console.log('work in progress');
+      if(gridContent[0] == gridContent[1] && gridContent[0] == gridContent[2] && gridContent[0] != 0 ||
+        gridContent[3] == gridContent[4] && gridContent[3] == gridContent[5]  && gridContent[3] != 0 ||
+        gridContent[6] == gridContent[7] && gridContent[6] == gridContent[8]  && gridContent[7] != 0 ||
+        gridContent[0] == gridContent[3] && gridContent[0] == gridContent[6]  && gridContent[0] != 0 ||
+        gridContent[1] == gridContent[4] && gridContent[1] == gridContent[7]  && gridContent[1] != 0 ||
+        gridContent[2] == gridContent[5] && gridContent[2] == gridContent[8]  && gridContent[2] != 0 ||
+        gridContent[0] == gridContent[4] && gridContent[0] == gridContent[8]  && gridContent[0] != 0 ||
+        gridContent[2] == gridContent[4] && gridContent[2] == gridContent[6]  && gridContent[2] != 0 ){
+        alert('you a winner ha ha ha');
+      }
     }
 
     function placeSymbol(event){
@@ -128,9 +137,9 @@
         gridContent[event.target.name] = 1;
         runner++;
         console.log(event);
-        endGameCheck();
+        setTimeout(endGameCheck, 50);
         if(runner < gridContent.length){
-          comPlaceSymbol();
+          setTimeout(comPlaceSymbol, 80);
         }
       }
     }
