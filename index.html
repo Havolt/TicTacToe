@@ -24,6 +24,8 @@
         border: 1px solid black;
         float: left;
         border-radius: 2%;
+        text-align: center;
+        font-size: 10em;
       }
 
       .gridBox:hover{
@@ -68,13 +70,13 @@
 
     let userInput = 'X';
 
-    let comInput = 'Y'
+    let comInput = 'O'
     let gridContent = [0,0,0,
                        0,0,0,
                        0,0,0];
 
     function chooseY(){
-      userInput = 'Y';
+      userInput = 'O';
       comInput = 'X';
       buildMap();
     }
@@ -85,6 +87,7 @@
       for(var i = 0; i < gridContent.length; i++){
         const gridBox = document.createElement('div');
         gridBox.classList.add('gridBox');
+        gridBox.name=i;
         app.appendChild(gridBox);
         console.log(180);
       }
@@ -105,7 +108,7 @@
         const pickX = document.createElement('h1');
         const pickY = document.createElement('h1');
         pickX.innerHTML="X";
-        pickY.innerHTML="Y";
+        pickY.innerHTML="O";
         pickX.classList="symbolPick";
         pickY.classList="symbolPick";
         app.appendChild(pickX);
@@ -115,7 +118,11 @@
     }
 
     function placeSymbol(event){
-      console.log(event);
+      if(gridContent[event.target.name] == 0){
+        event.target.innerHTML=userInput;
+        gridContent[event.target.name] = 1;
+        console.log(event);
+      }
     }
 
     (function init(){
