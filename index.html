@@ -65,6 +65,22 @@
         margin: 80px 120px;
       }
 
+      #retryButton{
+        color: white;
+        border: 1px solid white;
+        padding: 4px;
+        margin: 80px 115px;
+        display: inline-block;
+        border-radius: 2%;
+      }
+
+      #retryButton:hover{
+        color: #d8b16e;
+        border: 1px solid #d8b16e;
+        cursor: pointer;
+        background-color: #345a96;
+      }
+
 
     </style>
   </head>
@@ -79,6 +95,7 @@
     const gridBoxClass = document.getElementsByClassName('gridBox');
     const winStateClass = document.getElementsByClassName('winStateClass');
 
+    let retryButton;
     let gameOver = false;
     let userTurn = true;
     let userInput = 'X';
@@ -153,6 +170,11 @@
             whoWins.innerHTML = "You lose!";
           }
           app.children[9].appendChild(whoWins);
+          const retryButt = document.createElement('h2');
+          retryButt.id="retryButton";
+          retryButt.innerHTML="Restart";
+          retryButton = document.getElementById('retryButton');
+          app.children[9].appendChild(retryButt);
       }
     }
 
