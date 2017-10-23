@@ -69,7 +69,7 @@
     const gridBoxClass = document.getElementsByClassName('gridBox');
 
     let userInput = 'X';
-
+    let runner = 0;
     let comInput = 'O'
     let gridContent = [0,0,0,
                        0,0,0,
@@ -117,12 +117,35 @@
         pickY.addEventListener('click', chooseY);
     }
 
+    function endGameCheck(){
+      console.log('work in progress');
+    }
+
     function placeSymbol(event){
       if(gridContent[event.target.name] == 0){
         event.target.innerHTML=userInput;
+        event.target.style.backgroundColor="#c0f9c5";
         gridContent[event.target.name] = 1;
+        runner++;
         console.log(event);
+        endGameCheck();
+        if(runner < gridContent.length){
+          comPlaceSymbol();
+        }
       }
+    }
+
+    function comPlaceSymbol(){
+
+      let rando = Math.floor(Math.random()*gridContent.length);
+      while(gridContent[rando] != 0){
+        rando = Math.floor(Math.random()*gridContent.length);
+      }
+      gridContent[rando] = 2;
+      app.children[rando].innerHTML=comInput;
+      app.children[rando].style.backgroundColor="#f9c0c0";
+      runner++;
+      console.log(gridContent);
     }
 
     (function init(){
