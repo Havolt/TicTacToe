@@ -55,6 +55,16 @@
         margin-right: 0px;
       }
 
+      .winStateClass{
+        width: 330px;
+        height: 330px;
+        position: absolute;
+        background-color: #1d3151;
+        border: white solid 1px;
+        border-radius: 2%;
+        margin: 80px 120px;
+      }
+
 
     </style>
   </head>
@@ -67,7 +77,10 @@
 
     const app = document.getElementById('app');
     const gridBoxClass = document.getElementsByClassName('gridBox');
+    const winStateClass = document.getElementsByClassName('winStateClass');
 
+    let gameOver = false;
+    let userTurn = true;
     let userInput = 'X';
     let runner = 0;
     let comInput = 'O'
@@ -126,7 +139,20 @@
         gridContent[2] == gridContent[5] && gridContent[2] == gridContent[8]  && gridContent[2] != 0 ||
         gridContent[0] == gridContent[4] && gridContent[0] == gridContent[8]  && gridContent[0] != 0 ||
         gridContent[2] == gridContent[4] && gridContent[2] == gridContent[6]  && gridContent[2] != 0 ){
-        alert('you a winner ha ha ha');
+
+          gameOver = true;
+          const winState = document.createElement('div');
+          winState.classList="winStateClass";
+          app.appendChild(winState);
+          const whoWins = document.createElement('h1');
+          whoWins.style.color="white";
+          whoWins.style.textAlign="center";
+          if(userTurn == true){
+            whoWins.innerHTML = "You win!";
+          }else if(userTurn == false){
+            whoWins.innerHTML = "You lose!";
+          }
+          app.children[9].appendChild(whoWins);
       }
     }
 
@@ -137,8 +163,9 @@
         gridContent[event.target.name] = 1;
         runner++;
         console.log(event);
-        setTimeout(endGameCheck, 50);
-        if(runner < gridContent.length){
+        userTurn = true;
+        endGameCheck();
+        if(runner < gridContent.length && gameOver == false){
           setTimeout(comPlaceSymbol, 80);
         }
       }
@@ -151,9 +178,11 @@
         rando = Math.floor(Math.random()*gridContent.length);
       }
       gridContent[rando] = 2;
+      userTurn = false;
       app.children[rando].innerHTML=comInput;
       app.children[rando].style.backgroundColor="#f9c0c0";
       runner++;
+      endGameCheck();
       console.log(gridContent);
     }
 
