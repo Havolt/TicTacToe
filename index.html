@@ -6,7 +6,7 @@
     <style>
 
       html, body{
-        background-color: #f7f7f7;
+        background-color:#ffd7ad;
         font-family: arial;
       }
 
@@ -14,7 +14,7 @@
         width: 540px;
         height: 540px;
         border: 2px solid black;
-        margin: 60px auto;
+        margin: 20px auto;
         border-radius: 2%;
       }
 
@@ -82,11 +82,19 @@
         background-color: #345a96;
       }
 
+      #ticTacTitle{
+        color: white;
+        text-shadow: 0 0 2px black;
+        font-size: 3.5em;
+        text-align: center;
+      }
+
 
     </style>
   </head>
   <body>
 
+    <h1 id="ticTacTitle">Tic Tac Toe</h1>
     <div id="app"></div>
 
 
@@ -95,6 +103,7 @@
     const app = document.getElementById('app');
     const gridBoxClass = document.getElementsByClassName('gridBox');
     const winStateClass = document.getElementsByClassName('winStateClass');
+    const ticTacTitle = document.getElementById('ticTacTitle')
 
     let retryButton;
     let gameOver = false;
@@ -231,54 +240,70 @@
          rando = 4;
         console.log(rando);
       }
-      else if(gridContent[0] == 1 && gridContent[1] == 1 && gridContent[2] == 0){
+      else if(gridContent[0] == 1 && gridContent[1] == 1 && gridContent[2] == 0 ||
+              gridContent[0] == 2 && gridContent[1] == 2 && gridContent[2] == 0){
           rando = 2;
-      }else if(gridContent[3] == 1 && gridContent[4] == 1 && gridContent[5] == 0){
+      }else if(gridContent[3] == 1 && gridContent[4] == 1 && gridContent[5] == 0 ||
+               gridContent[3] == 2 && gridContent[4] == 2 && gridContent[5] == 0){
         rando = 5;
       }
-      else if(gridContent[6] == 1 && gridContent[7] == 1 && gridContent[8] == 0){
+      else if(gridContent[6] == 1 && gridContent[7] == 1 && gridContent[8] == 0 ||
+              gridContent[6] == 2 && gridContent[7] == 2 && gridContent[8] == 0){
         rando = 8;
       }
-      else if(gridContent[1] == 1 && gridContent[2] == 1 && gridContent[0] == 0){
+      else if(gridContent[1] == 1 && gridContent[2] == 1 && gridContent[0] == 0 ||
+              gridContent[1] == 2 && gridContent[2] == 2 && gridContent[0] == 0){
         rando = 0;
       }
-      else if(gridContent[4] == 1 && gridContent[5] == 1 && gridContent[3] == 0){
+      else if(gridContent[4] == 1 && gridContent[5] == 1 && gridContent[3] == 0 ||
+              gridContent[4] == 2 && gridContent[5] == 2 && gridContent[3] == 0){
         rando = 3;
       }
       else if(gridContent[7] == 1 && gridContent[8] == 1 && gridContent[6] == 0){
         rando = 6;
       }
-      else if(gridContent[0] == 1 && gridContent[2] == 1 && gridContent[1] == 0){
+      else if(gridContent[0] == 1 && gridContent[2] == 1 && gridContent[1] == 0 ||
+              gridContent[0] == 2 && gridContent[2] == 2 && gridContent[1] == 0){
         rando = 1;
       }
-      else if(gridContent[3] == 1 && gridContent[5] == 1 && gridContent[4] == 0){
+      else if(gridContent[3] == 1 && gridContent[5] == 1 && gridContent[4] == 0 ||
+              gridContent[3] == 2 && gridContent[5] == 2 && gridContent[4] == 0){
         rando = 4;
       }
-      else if(gridContent[6] == 1 && gridContent[8] == 1 && gridContent[7] == 0){
+      else if(gridContent[6] == 1 && gridContent[8] == 1 && gridContent[7] == 0 ||
+              gridContent[6] == 2 && gridContent[8] == 2 && gridContent[7] == 0){
         rando = 7;
       }
-      else if(gridContent[0] == 1 && gridContent[3] == 1 && gridContent[6] == 0){
+      else if(gridContent[0] == 1 && gridContent[3] == 1 && gridContent[6] == 0 ||
+              gridContent[0] == 2 && gridContent[3] == 2 && gridContent[6] == 0){
         rando = 6;
       }
-      else if(gridContent[1] == 1 && gridContent[4] == 1 && gridContent[7] == 0){
+      else if(gridContent[1] == 1 && gridContent[4] == 1 && gridContent[7] == 0 ||
+              gridContent[1] == 2 && gridContent[4] == 2 && gridContent[7] == 0){
         rando = 7;
       }
-      else if(gridContent[2] == 1 && gridContent[5] == 1 && gridContent[8] == 0){
+      else if(gridContent[2] == 1 && gridContent[5] == 1 && gridContent[8] == 0 ||
+              gridContent[2] == 2 && gridContent[5] == 2 && gridContent[8] == 0){
         rando = 8;
       }
-      else if(gridContent[0] == 1 && gridContent[6] == 1 && gridContent[3] == 0){
+      else if(gridContent[0] == 1 && gridContent[6] == 1 && gridContent[3] == 0 ||
+              gridContent[0] == 2 && gridContent[6] == 2 && gridContent[3] == 0){
         rando = 3;
       }
-      else if(gridContent[1] == 1 && gridContent[7] == 1 && gridContent[4] == 0){
+      else if(gridContent[1] == 1 && gridContent[7] == 1 && gridContent[4] == 0 ||
+              gridContent[1] == 2 && gridContent[7] == 2 && gridContent[4] == 0){
         rando = 4;
       }
-      else if(gridContent[2] == 1 && gridContent[8] == 1 && gridContent[5] == 0){
+      else if(gridContent[2] == 1 && gridContent[8] == 1 && gridContent[5] == 0 ||
+              gridContent[2] == 2 && gridContent[8] == 2 && gridContent[5] == 0){
         rando = 5;
       }
-      else if(gridContent[0] == 1 && gridContent[4] == 1 && gridContent[8] == 0){
+      else if(gridContent[0] == 1 && gridContent[4] == 1 && gridContent[8] == 0 ||
+              gridContent[0] == 2 && gridContent[4] == 2 && gridContent[8] == 0){
         rando = 8;
       }
-      else if(gridContent[2] == 1 && gridContent[4] == 1 && gridContent[6] == 0){
+      else if(gridContent[2] == 1 && gridContent[4] == 1 && gridContent[6] == 0 ||
+              gridContent[0] == 2 && gridContent[4] == 2 && gridContent[8] == 0){
         rando = 6;
       }
       else{
