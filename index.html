@@ -67,6 +67,7 @@
 
       #retryButton{
         color: white;
+        font-size: 1.5em;
         border: 1px solid white;
         padding: 4px;
         margin: 80px 115px;
@@ -164,6 +165,7 @@
           const whoWins = document.createElement('h1');
           whoWins.style.color="white";
           whoWins.style.textAlign="center";
+          whoWins.style.marginTop="60px";
           if(userTurn == true){
             whoWins.innerHTML = "You win!";
           }else if(userTurn == false){
@@ -175,7 +177,23 @@
           retryButt.innerHTML="Restart";
           retryButton = document.getElementById('retryButton');
           app.children[9].appendChild(retryButt);
+          retryButt.addEventListener('click', resetApp);
       }
+    }
+
+    function resetApp(){
+      app.innerHTML="";
+      retryButton = undefined;
+      gameOver = false;
+      userTurn = true;
+      userInput = 'X';
+      runner = 0;
+      comInput = 'O'
+      gridContent = [0,0,0,
+                     0,0,0,
+                     0,0,0];
+      chooseSymbol();
+
     }
 
     function placeSymbol(event){
