@@ -102,6 +102,7 @@
     let userTurn = true;
     let userInput = 'X';
     let runner = 0;
+    let rando;
     let comInput = 'O'
     let gridContent = [0,0,0,
                        0,0,0,
@@ -226,9 +227,14 @@
 
     function comPlaceSymbol(){
 
-      let rando = Math.floor(Math.random()*gridContent.length);
-      while(gridContent[rando] != 0){
-        rando = Math.floor(Math.random()*gridContent.length);
+      if(gridContent[4] == 0){
+         rando = 4;
+        console.log(rando);
+      }else{
+         rando = Math.floor(Math.random()*gridContent.length);
+        while(gridContent[rando] != 0){
+          rando = Math.floor(Math.random()*gridContent.length);
+        }
       }
       gridContent[rando] = 2;
       userTurn = false;
