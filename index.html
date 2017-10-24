@@ -98,6 +98,7 @@
 
     let retryButton;
     let gameOver = false;
+    let gridBlank = false;
     let userTurn = true;
     let userInput = 'X';
     let runner = 0;
@@ -149,6 +150,12 @@
     }
 
     function endGameCheck(){
+      gridBlank = false;
+      for(var i = 0; i < gridContent.length; i++){
+        if(gridContent[i] == 0){
+          gridBlank = true;
+        }
+      }
       if(gridContent[0] == gridContent[1] && gridContent[0] == gridContent[2] && gridContent[0] != 0 ||
         gridContent[3] == gridContent[4] && gridContent[3] == gridContent[5]  && gridContent[3] != 0 ||
         gridContent[6] == gridContent[7] && gridContent[6] == gridContent[8]  && gridContent[7] != 0 ||
@@ -156,7 +163,8 @@
         gridContent[1] == gridContent[4] && gridContent[1] == gridContent[7]  && gridContent[1] != 0 ||
         gridContent[2] == gridContent[5] && gridContent[2] == gridContent[8]  && gridContent[2] != 0 ||
         gridContent[0] == gridContent[4] && gridContent[0] == gridContent[8]  && gridContent[0] != 0 ||
-        gridContent[2] == gridContent[4] && gridContent[2] == gridContent[6]  && gridContent[2] != 0 ){
+        gridContent[2] == gridContent[4] && gridContent[2] == gridContent[6]  && gridContent[2] != 0 ||
+        gridBlank == false ){
 
           gameOver = true;
           const winState = document.createElement('div');
@@ -166,7 +174,10 @@
           whoWins.style.color="white";
           whoWins.style.textAlign="center";
           whoWins.style.marginTop="60px";
-          if(userTurn == true){
+          if(gridBlank == false){
+            whoWins.innerHTML = "Draw!";
+          }
+          else if(userTurn == true){
             whoWins.innerHTML = "You win!";
           }else if(userTurn == false){
             whoWins.innerHTML = "You lose!";
@@ -179,6 +190,7 @@
           app.children[9].appendChild(retryButt);
           retryButt.addEventListener('click', resetApp);
       }
+
     }
 
     function resetApp(){
@@ -188,6 +200,7 @@
       userTurn = true;
       userInput = 'X';
       runner = 0;
+      gridBlank = true;
       comInput = 'O'
       gridContent = [0,0,0,
                      0,0,0,
