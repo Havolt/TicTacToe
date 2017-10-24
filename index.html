@@ -230,7 +230,58 @@
       if(gridContent[4] == 0){
          rando = 4;
         console.log(rando);
-      }else{
+      }
+      else if(gridContent[0] == 1 && gridContent[1] == 1 && gridContent[2] == 0){
+          rando = 2;
+      }else if(gridContent[3] == 1 && gridContent[4] == 1 && gridContent[5] == 0){
+        rando = 5;
+      }
+      else if(gridContent[6] == 1 && gridContent[7] == 1 && gridContent[8] == 0){
+        rando = 8;
+      }
+      else if(gridContent[1] == 1 && gridContent[2] == 1 && gridContent[0] == 0){
+        rando = 0;
+      }
+      else if(gridContent[4] == 1 && gridContent[5] == 1 && gridContent[3] == 0){
+        rando = 3;
+      }
+      else if(gridContent[7] == 1 && gridContent[8] == 1 && gridContent[6] == 0){
+        rando = 6;
+      }
+      else if(gridContent[0] == 1 && gridContent[2] == 1 && gridContent[1] == 0){
+        rando = 1;
+      }
+      else if(gridContent[3] == 1 && gridContent[5] == 1 && gridContent[4] == 0){
+        rando = 4;
+      }
+      else if(gridContent[6] == 1 && gridContent[8] == 1 && gridContent[7] == 0){
+        rando = 7;
+      }
+      else if(gridContent[0] == 1 && gridContent[3] == 1 && gridContent[6] == 0){
+        rando = 6;
+      }
+      else if(gridContent[1] == 1 && gridContent[4] == 1 && gridContent[7] == 0){
+        rando = 7;
+      }
+      else if(gridContent[2] == 1 && gridContent[5] == 1 && gridContent[8] == 0){
+        rando = 8;
+      }
+      else if(gridContent[0] == 1 && gridContent[6] == 1 && gridContent[3] == 0){
+        rando = 3;
+      }
+      else if(gridContent[1] == 1 && gridContent[7] == 1 && gridContent[4] == 0){
+        rando = 4;
+      }
+      else if(gridContent[2] == 1 && gridContent[8] == 1 && gridContent[5] == 0){
+        rando = 5;
+      }
+      else if(gridContent[0] == 1 && gridContent[4] == 1 && gridContent[8] == 0){
+        rando = 8;
+      }
+      else if(gridContent[2] == 1 && gridContent[4] == 1 && gridContent[6] == 0){
+        rando = 6;
+      }
+      else{
          rando = Math.floor(Math.random()*gridContent.length);
         while(gridContent[rando] != 0){
           rando = Math.floor(Math.random()*gridContent.length);
