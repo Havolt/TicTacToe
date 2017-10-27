@@ -303,9 +303,17 @@
         rando = 8;
       }
       else if(gridContent[2] == 1 && gridContent[4] == 1 && gridContent[6] == 0 ||
-              gridContent[0] == 2 && gridContent[4] == 2 && gridContent[8] == 0){
+              gridContent[2] == 2 && gridContent[4] == 2 && gridContent[6] == 0){
         rando = 6;
       }
+      else if(gridContent[4] == 1 && gridContent[6] == 1 && gridContent[2] == 0 ||
+              gridContent[4] == 2 && gridContent[6] == 2 && gridContent[2] == 0){
+                rando = 2;
+              }
+      else if(gridContent[4] == 1 && gridContent[8] == 1 && gridContent[0] == 0 ||
+              gridContent[4] == 2 && gridContent[8] == 2 && gridContent[0] == 0){
+                rando = 0;
+                      }
       else{
          rando = Math.floor(Math.random()*gridContent.length);
         while(gridContent[rando] != 0){
